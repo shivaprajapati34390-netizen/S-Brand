@@ -59,7 +59,6 @@
         }
 
         .section-header {
-            font-size: 3.75rem;
             line-height: 1.05;
             letter-spacing: -0.04em;
         }
@@ -123,12 +122,12 @@
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-900">
         <div class="max-w-screen-2xl mx-auto">
-            <div class="px-8 py-5 flex items-center justify-between">
+            <div class="px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
                 <div class="flex items-center gap-x-3">
                     <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center">
                         <span class="text-zinc-950 text-xl font-bold tracking-tighter">S</span>
                     </div>
-                    <span class="font-semibold tracking-tighter text-2xl">S-Brand </span>
+                    <span class="font-semibold tracking-tighter text-xl sm:text-2xl">S-Brand</span>
                 </div>
 
                 <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
@@ -138,22 +137,33 @@
                     <a href="about.html" class="hover:text-white transition-colors">About</a>
                 </div>
 
-                <div class="flex items-center gap-x-4">
-                    <button class="px-5 py-2.5 text-sm font-medium hover:bg-zinc-900 transition-colors rounded-full border border-zinc-800 flex items-center gap-x-2">
+                <div class="flex items-center gap-x-2 sm:gap-x-4">
+                    <button class="hidden sm:flex px-5 py-2.5 text-sm font-medium hover:bg-zinc-900 transition-colors rounded-full border border-zinc-800 items-center gap-x-2">
                         <i class="fa-solid fa-search text-xs"></i>
                         <span class="hidden md:inline">Search</span>
                     </button>
-                    <button onclick="document.getElementById('compare').scrollIntoView({ behavior: 'smooth' })" class="px-5 py-2.5 text-sm font-medium bg-white text-zinc-950 rounded-full flex items-center gap-x-2 hover:bg-zinc-100 transition-colors">
+                    <button onclick="document.getElementById('compare').scrollIntoView({ behavior: 'smooth' })" class="px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium bg-white text-zinc-950 rounded-full flex items-center gap-x-2 hover:bg-zinc-100 transition-colors whitespace-nowrap">
                         <span class="font-medium">Compare Now</span>
                     </button>
+                    <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-full border border-zinc-800 flex items-center justify-center flex-shrink-0" aria-label="Open menu">
+                        <i class="fa-solid fa-bars text-sm"></i>
+                    </button>
                 </div>
+            </div>
+
+            <!-- Mobile menu panel -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-900 px-5 py-4 flex flex-col gap-y-1 text-sm font-medium bg-zinc-950">
+                <a href="#collection" class="py-2.5 hover:text-white transition-colors">Trending</a>
+                <a href="#compare" class="py-2.5 hover:text-white transition-colors">Compare</a>
+                <a href="brands.html" class="py-2.5 hover:text-white transition-colors">Brands</a>
+                <a href="about.html" class="py-2.5 hover:text-white transition-colors">About</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="pt-16 min-h-screen flex items-center hero-bg relative">
-        <div class="max-w-screen-2xl mx-auto px-8 pt-8 pb-16 w-full">
+    <div class="pt-24 md:pt-16 min-h-screen flex items-center hero-bg relative">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8 pt-8 pb-16 w-full">
             <div class="grid md:grid-cols-12 gap-8 items-center">
 
                 <!-- Headline -->
@@ -161,23 +171,23 @@
                     <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
                         <div class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                            <span class="text-xs tracking-[1px] font-medium text-emerald-400">17 BRANDS, LIVE STOCK</span>
+                            <span class="text-[10px] sm:text-xs tracking-[1px] font-medium text-emerald-400">17 BRANDS, LIVE STOCK</span>
                         </div>
                     </div>
 
-                    <h1 class="section-header text-7xl md:text-7xl lg:text-8xl tracking-tighter leading-none mb-4">
+                    <h1 class="section-header text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-none mb-4">
                         Every brand.<br>
                         <span class="text-zinc-400">One search.</span>
                     </h1>
 
-                    <p class="max-w-md text-lg text-zinc-400 mb-8">
+                    <p class="max-w-md text-base sm:text-lg text-zinc-400 mb-8">
                         Type it, or upload a photo. S-Brand finds it across India's best D2C
                         labels — real price, real stock, right now.
                     </p>
 
-                    <div class="flex items-center gap-x-4">
+                    <div class="flex flex-col xs:flex-row items-start xs:items-center gap-3 xs:gap-x-4">
                         <button onclick="document.getElementById('compare').scrollIntoView({ behavior: 'smooth' })"
-                                class="px-8 py-4 bg-white text-zinc-950 font-semibold text-sm tracking-wider rounded-full hover:bg-zinc-100 transition-all active:scale-[0.985]">
+                                class="w-full xs:w-auto px-8 py-4 bg-white text-zinc-950 font-semibold text-sm tracking-wider rounded-full hover:bg-zinc-100 transition-all active:scale-[0.985] text-center">
                             START COMPARING
                         </button>
                         <button onclick="document.getElementById('collection').scrollIntoView({ behavior: 'smooth' })"
@@ -187,8 +197,8 @@
                         </button>
                     </div>
 
-                    <div class="flex items-center gap-x-5 mt-10 text-xs text-zinc-500">
-                        <i class="fa-solid fa-bolt text-emerald-400"></i>
+                    <div class="flex items-start sm:items-center gap-x-3 mt-10 text-xs text-zinc-500">
+                        <i class="fa-solid fa-bolt text-emerald-400 mt-0.5 sm:mt-0"></i>
                         <span>No account needed. Prices pulled straight from each brand's own store.</span>
                     </div>
                 </div>
@@ -259,17 +269,17 @@
     </div>
 
     <!-- Trending Across Brands -->
-    <div id="collection" class="max-w-screen-2xl mx-auto px-8 py-20">
-        <div class="flex items-end justify-between mb-9">
+    <div id="collection" class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-9">
             <div>
                 <span class="text-xs tracking-[2px] text-white/50">CURATED FOR YOU</span>
-                <h2 class="text-4xl tracking-tighter font-semibold">Trending across brands</h2>
+                <h2 class="text-3xl sm:text-4xl tracking-tighter font-semibold">Trending across brands</h2>
                 <p class="text-zinc-400 mt-2 text-sm max-w-md">Hand-picked from live stock across our 17 partner brands — tap any piece to buy direct.</p>
             </div>
-            <a href="#compare" class="hidden md:flex items-center text-sm font-medium text-white/70 hover:text-white transition-colors">Compare more <i class="ml-2 fa-solid fa-arrow-right"></i></a>
+            <a href="#compare" class="flex items-center text-sm font-medium text-white/70 hover:text-white transition-colors">Compare more <i class="ml-2 fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             <!-- Product 1: Offduty - Jeans -->
             <a href="https://offduty.in/products/blue-drift-bootcut-jeans" target="_blank" rel="noopener" class="group block">
                 <div class="aspect-[4/3.1] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 relative hover:border-emerald-400/40 transition-colors">
@@ -335,18 +345,18 @@
     </div>
 
     <!-- ================= COMPARE SECTION (new) ================= -->
-    <div id="compare" class="max-w-screen-2xl mx-auto px-8 py-20 border-t border-zinc-900">
+    <div id="compare" class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-14 sm:py-20 border-t border-zinc-900">
         <div class="mb-10">
             <span class="text-xs tracking-[2px] text-white/50">AI ASSISTANT</span>
-            <h2 class="text-4xl tracking-tighter font-semibold mt-1">Compare it before you buy it</h2>
-            <p class="text-zinc-400 mt-3 max-w-md">Upload a photo or type an item — see it priced and in stock across every brand worth checking.</p>
+            <h2 class="text-3xl sm:text-4xl tracking-tighter font-semibold mt-1">Compare it before you buy it</h2>
+            <p class="text-zinc-400 mt-3 max-w-md text-sm sm:text-base">Upload a photo or type an item — see it priced and in stock across every brand worth checking.</p>
             <div class="inline-flex items-center gap-x-2 mt-5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
                 <i class="fa-solid fa-store text-emerald-400 text-xs"></i>
                 <span class="text-xs font-medium text-zinc-300">17 brands searched live, every time</span>
             </div>
         </div>
 
-        <div class="max-w-2xl mx-auto bg-zinc-900/70 border border-white/10 rounded-3xl p-6 md:p-8">
+        <div class="max-w-2xl mx-auto bg-zinc-900/70 border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8">
 
             <!-- ai lead: compare.js updates this text on every search -->
             <p class="text-sm text-zinc-400 mb-4">Type an item above, or upload a photo, to see live results here.</p>
@@ -370,7 +380,7 @@
     <!-- ================= END COMPARE SECTION ================= -->
 
     <!-- Footer -->
-    <footer class="max-w-screen-2xl mx-auto px-8 py-10 border-t border-zinc-900">
+    <footer class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-10 border-t border-zinc-900">
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div class="flex items-center gap-x-3">
                 <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
@@ -437,7 +447,32 @@
             console.log('%c[S-Brand] Marquee animation initialized with reduced-motion support.', 'color:#444');
         }
 
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            });
+
+            // Close menu when a link inside it is clicked
+            menu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    const icon = btn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                });
+            });
+        }
+
         window.onload = init;
+        document.addEventListener('DOMContentLoaded', initMobileMenu);
     </script>
 
     <script src="assets/js/compare.js"></script>
