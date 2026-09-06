@@ -2,7 +2,7 @@
 // Connects the S-Brand "Compare" input bar to the live backend API.
 // Supports both text search and photo-upload search (via Claude vision).
 
-const BACKEND_URL = "http://localhost:4000"; // change this after you deploy the backend
+const BACKEND_URL = "https://s-brand-qi39.onrender.com"; // deployed backend
 
 document.addEventListener("DOMContentLoaded", () => {
   const compareSection = document.getElementById("compare");
