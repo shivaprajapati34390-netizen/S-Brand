@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-Brand • All Brands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .card-hover { transition: transform 400ms cubic-bezier(0.23,1,0.32,1), border-color 400ms ease; }
+        .card-hover:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-900">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-x-3">
+                    <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-zinc-950 text-xl font-bold tracking-tighter">S</span>
+                    </div>
+                    <span class="font-semibold tracking-tighter text-2xl">S-Brand</span>
+                </a>
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#collection" class="hover:text-white transition-colors">Trending</a>
+                    <a href="index.html#compare" class="hover:text-white transition-colors">Compare</a>
+                    <a href="brands.html" class="text-white">Brands</a>
+                    <a href="#" class="hover:text-white transition-colors">Journal</a>
+                </div>
+                <a href="index.html#compare" class="px-5 py-2.5 text-sm font-medium bg-white text-zinc-950 rounded-full hover:bg-zinc-100 transition-colors">
+                    Compare Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-40 pb-16 max-w-screen-2xl mx-auto px-8">
+        <span class="text-xs tracking-[2px] text-white/50">THE DIRECTORY</span>
+        <h1 class="text-5xl md:text-6xl tracking-tighter font-semibold mt-2 mb-4">17 brands. One search.</h1>
+        <p class="text-zinc-400 max-w-xl">Every label we track live, in one place. Tap any brand to browse their store directly, or use Compare to search across all of them at once.</p>
+    </div>
+
+    <!-- Brand Grid -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <a href="https://mecnex.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">M</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Mecnex</h3>
+                <p class="text-sm text-zinc-500 mt-1">Streetwear • Oversized fits, leather jackets</p>
+            </a>
+
+            <a href="https://offduty.in" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">O</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Offduty India</h3>
+                <p class="text-sm text-zinc-500 mt-1">Denim • Bootcut, wide-leg, baggy jeans</p>
+            </a>
+
+            <a href="https://thebearhouse.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">B</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">The Bear House</h3>
+                <p class="text-sm text-zinc-500 mt-1">Casual shirts • Value-priced everyday wear</p>
+            </a>
+
+            <a href="https://lovegen.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">L</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">LoveGen</h3>
+                <p class="text-sm text-zinc-500 mt-1">Casualwear • Everyday basics</p>
+            </a>
+
+            <a href="https://gritstones.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">G</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Gritstones</h3>
+                <p class="text-sm text-zinc-500 mt-1">Knitwear • Henleys, textured tees</p>
+            </a>
+
+            <a href="https://5feet11.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">5</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">5feet11</h3>
+                <p class="text-sm text-zinc-500 mt-1">Streetwear • Youth-focused casual</p>
+            </a>
+
+            <a href="https://fugazee.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">F</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Fugazee</h3>
+                <p class="text-sm text-zinc-500 mt-1">Ribbed knits • Henleys, longsleeves</p>
+            </a>
+
+            <a href="https://vastrado.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">V</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Vastrado</h3>
+                <p class="text-sm text-zinc-500 mt-1">Ethnic & fusion wear • Kurtas, festive</p>
+            </a>
+
+            <a href="https://snitch.co.in" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">S</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Snitch</h3>
+                <p class="text-sm text-zinc-500 mt-1">Trend-led fashion • Fast-moving styles</p>
+            </a>
+
+            <a href="https://offdaze.in" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">O</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Offdaze</h3>
+                <p class="text-sm text-zinc-500 mt-1">Streetwear • Henleys, waffle knits</p>
+            </a>
+
+            <a href="https://bewakoof.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">B</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Bewakoof</h3>
+                <p class="text-sm text-zinc-500 mt-1">Graphic tees • Pop-culture, budget-friendly</p>
+            </a>
+
+            <a href="https://thesouledstore.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">T</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">The Souled Store</h3>
+                <p class="text-sm text-zinc-500 mt-1">Licensed merch • Fandom, higher fabric weight</p>
+            </a>
+
+            <a href="https://urbanmonkey.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">U</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Urban Monkey</h3>
+                <p class="text-sm text-zinc-500 mt-1">Headwear & streetwear • Caps, hoodies</p>
+            </a>
+
+            <a href="https://bonkerscorner.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">B</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Bonkers Corner</h3>
+                <p class="text-sm text-zinc-500 mt-1">Unisex streetwear • Oversized, relaxed fits</p>
+            </a>
+
+            <a href="https://veirdo.in" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">V</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Veirdo</h3>
+                <p class="text-sm text-zinc-500 mt-1">Statement streetwear • India-coded prints</p>
+            </a>
+
+            <a href="https://genrage.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">G</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Gen Rage</h3>
+                <p class="text-sm text-zinc-500 mt-1">Fashion & apparel • Everyday styles</p>
+            </a>
+
+            <a href="https://chokore.com" target="_blank" rel="noopener" class="card-hover group block bg-zinc-900/70 border border-white/10 rounded-2xl p-6 hover:border-emerald-400/40">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center font-semibold text-lg">C</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-600 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="font-medium text-lg">Chokore</h3>
+                <p class="text-sm text-zinc-500 mt-1">Accessories & apparel • Ties, pocket squares, shirts</p>
+            </a>
+
+        </div>
+
+        <!-- Missing a brand? -->
+        <div class="mt-10 flex items-center justify-between flex-wrap gap-4 bg-zinc-900/50 border border-white/10 rounded-2xl px-6 py-5">
+            <div>
+                <p class="font-medium">Don't see your favorite brand?</p>
+                <p class="text-sm text-zinc-500 mt-1">We're adding new stores every week — tell us who to track next.</p>
+            </div>
+            <a href="#" class="px-5 py-2.5 text-sm font-medium bg-white text-zinc-950 rounded-full hover:bg-zinc-100 transition-colors whitespace-nowrap">
+                Suggest a brand
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

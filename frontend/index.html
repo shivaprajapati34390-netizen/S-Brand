@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-Brand • Compare Every Brand, Live</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Playfair+Display:wght@700&amp;display=swap');
+
+        :root {
+            --primary: #111111;
+        }
+
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.05;
+        }
+
+        .premium-marquee {
+            animation: marquee-drift 65s linear infinite;
+        }
+
+        .premium-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee-drift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .product-hover {
+            transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1),
+                       box-shadow 700ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .product-hover:hover {
+            transform: rotate(1.5deg) translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+
+        .subtle-sway {
+            transition: transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .subtle-sway:hover {
+            transform: rotate(2deg) translateY(-2px);
+        }
+
+        .hero-bg {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+        }
+
+        .section-header {
+            font-size: 3.75rem;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+        }
+
+        .clothing-shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+                        0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .marquee-container {
+            mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 8%,
+                black 92%,
+                transparent
+            );
+        }
+
+        /* --- Compare widget additions --- */
+        .turntable-frame {
+            perspective: 500px;
+        }
+        .turntable-frame img {
+            animation: turntable-spin 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        @keyframes turntable-spin {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(16deg) scale(1.03); }
+        }
+        .stock-dot::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            margin-right: 5px;
+        }
+        .stock-in::before { background: #34d399; }
+        .stock-low::before { background: #d4a15c; }
+        .stock-out::before { background: #b06b5c; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .premium-marquee,
+            .product-hover,
+            .subtle-sway,
+            .turntable-frame img {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-900">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-zinc-950 text-xl font-bold tracking-tighter">S</span>
+                    </div>
+                    <span class="font-semibold tracking-tighter text-2xl">S-Brand </span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#collection" class="hover:text-white transition-colors">Trending</a>
+                    <a href="#compare" class="hover:text-white transition-colors">Compare</a>
+                    <a href="brands.html" class="hover:text-white transition-colors">Brands</a>
+                    <a href="about.html" class="hover:text-white transition-colors">About</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <button class="px-5 py-2.5 text-sm font-medium hover:bg-zinc-900 transition-colors rounded-full border border-zinc-800 flex items-center gap-x-2">
+                        <i class="fa-solid fa-search text-xs"></i>
+                        <span class="hidden md:inline">Search</span>
+                    </button>
+                    <button onclick="document.getElementById('compare').scrollIntoView({ behavior: 'smooth' })" class="px-5 py-2.5 text-sm font-medium bg-white text-zinc-950 rounded-full flex items-center gap-x-2 hover:bg-zinc-100 transition-colors">
+                        <span class="font-medium">Compare Now</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-16 min-h-screen flex items-center hero-bg relative">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-8 pb-16 w-full">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+
+                <!-- Headline -->
+                <div class="md:col-span-7 max-w-xl">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
+                        <div class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span class="text-xs tracking-[1px] font-medium text-emerald-400">17 BRANDS, LIVE STOCK</span>
+                        </div>
+                    </div>
+
+                    <h1 class="section-header text-7xl md:text-7xl lg:text-8xl tracking-tighter leading-none mb-4">
+                        Every brand.<br>
+                        <span class="text-zinc-400">One search.</span>
+                    </h1>
+
+                    <p class="max-w-md text-lg text-zinc-400 mb-8">
+                        Type it, or upload a photo. S-Brand finds it across India's best D2C
+                        labels — real price, real stock, right now.
+                    </p>
+
+                    <div class="flex items-center gap-x-4">
+                        <button onclick="document.getElementById('compare').scrollIntoView({ behavior: 'smooth' })"
+                                class="px-8 py-4 bg-white text-zinc-950 font-semibold text-sm tracking-wider rounded-full hover:bg-zinc-100 transition-all active:scale-[0.985]">
+                            START COMPARING
+                        </button>
+                        <button onclick="document.getElementById('collection').scrollIntoView({ behavior: 'smooth' })"
+                                class="px-8 py-4 font-medium text-sm flex items-center gap-x-3 group">
+                            <span>See what's trending</span>
+                            <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-x-5 mt-10 text-xs text-zinc-500">
+                        <i class="fa-solid fa-bolt text-emerald-400"></i>
+                        <span>No account needed. Prices pulled straight from each brand's own store.</span>
+                    </div>
+                </div>
+
+                <!-- Signature Marquee -->
+                <div class="md:col-span-5 relative mt-8 md:mt-0">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900/70">
+                        <!-- Marquee Header -->
+                        <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-medium tracking-widest text-white/60">IN MOTION</span>
+                            </div>
+                            <div class="text-[10px] px-3 py-1 rounded-full bg-white/5 text-white/60">SS25</div>
+                        </div>
+
+                        <!-- Horizontal Marquee: same 4 products as Signature pieces section -->
+                        <div class="marquee-container h-[280px] relative overflow-hidden">
+                            <div class="flex premium-marquee absolute top-0 left-0 w-[200%] h-full items-center gap-4 px-4" style="animation-duration: 65s;">
+                                <!-- Set 1 -->
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative bg-zinc-800">
+                                    <img src="https://offduty.in/cdn/shop/files/IMG_4594.png?v=1774675710" class="w-full h-full object-contain" alt="Offduty Drift Bootcut Jeans">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Offduty</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://cdn.shopify.com/s/files/1/0710/6805/7922/files/henley-mockup-B2_jpg_718e6f89-a2d3-4b14-bd7c-5cfd228e6164.jpg?v=1776238838" class="w-full h-full object-cover" alt="Mecnex Henley Black">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Mecnex</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://cdn.shopify.com/s/files/1/0274/0086/3853/files/1_b3f2eb4e-c101-4305-8075-350e4e686c36.jpg?v=1787554536" class="w-full h-full object-cover" alt="Gritstones Blue Henley T-Shirt">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Gritstones</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://mecnex.com/cdn/shop/files/black-rider-2_jpg.jpg?v=1777543429" class="w-full h-full object-cover" alt="Mecnex Leather Rider Jacket">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Mecnex</span>
+                                </div>
+
+                                <!-- Duplicate set for seamless loop -->
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative bg-zinc-800">
+                                    <img src="https://offduty.in/cdn/shop/files/IMG_4594.png?v=1774675710" class="w-full h-full object-contain" alt="Offduty Drift Bootcut Jeans">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Offduty</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://cdn.shopify.com/s/files/1/0710/6805/7922/files/henley-mockup-B2_jpg_718e6f89-a2d3-4b14-bd7c-5cfd228e6164.jpg?v=1776238838" class="w-full h-full object-cover" alt="Mecnex Henley Black">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Mecnex</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://cdn.shopify.com/s/files/1/0274/0086/3853/files/1_b3f2eb4e-c101-4305-8075-350e4e686c36.jpg?v=1787554536" class="w-full h-full object-cover" alt="Gritstones Blue Henley T-Shirt">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Gritstones</span>
+                                </div>
+                                <div class="flex-shrink-0 w-36 h-56 rounded-2xl overflow-hidden clothing-shadow border border-white/10 relative">
+                                    <img src="https://mecnex.com/cdn/shop/files/black-rider-2_jpg.jpg?v=1777543429" class="w-full h-full object-cover" alt="Mecnex Leather Rider Jacket">
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-medium bg-black/70 text-white px-2 py-0.5 rounded-full">Mecnex</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-950/90 to-transparent"></div>
+                    </div>
+
+                    <div class="absolute -bottom-3 -right-3 bg-zinc-900 border border-white/10 text-xs px-4 py-2 rounded-2xl flex items-center gap-x-2">
+                        <i class="fa-solid fa-store text-emerald-400"></i>
+                        <span class="text-xs font-medium">25+ brands compared live</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Trending Across Brands -->
+    <div id="collection" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="flex items-end justify-between mb-9">
+            <div>
+                <span class="text-xs tracking-[2px] text-white/50">CURATED FOR YOU</span>
+                <h2 class="text-4xl tracking-tighter font-semibold">Trending across brands</h2>
+                <p class="text-zinc-400 mt-2 text-sm max-w-md">Hand-picked from live stock across our 17 partner brands — tap any piece to buy direct.</p>
+            </div>
+            <a href="#compare" class="hidden md:flex items-center text-sm font-medium text-white/70 hover:text-white transition-colors">Compare more <i class="ml-2 fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product 1: Offduty - Jeans -->
+            <a href="https://offduty.in/products/blue-drift-bootcut-jeans" target="_blank" rel="noopener" class="group block">
+                <div class="aspect-[4/3.1] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 relative hover:border-emerald-400/40 transition-colors">
+                    <img src="https://offduty.in/cdn/shop/files/IMG_4594.png?v=1774675710" class="w-full h-full object-contain subtle-sway" alt="Drift Bootcut Jeans">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/90 text-zinc-900 text-xs font-medium rounded-full">New</div>
+                </div>
+                <div class="pt-4 px-1 flex justify-between items-baseline">
+                    <div>
+                        <div class="font-medium">Drift Bootcut Jeans</div>
+                        <div class="text-sm text-white/50">Offduty • Denim</div>
+                    </div>
+                    <div class="font-medium">₹1,850</div>
+                </div>
+            </a>
+
+            <!-- Product 2: Mecnex - Henley -->
+            <a href="https://mecnex.com/products/mecnex-henley-black" target="_blank" rel="noopener" class="group block">
+                <div class="aspect-[4/3.1] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 relative hover:border-emerald-400/40 transition-colors">
+                    <img src="https://cdn.shopify.com/s/files/1/0710/6805/7922/files/henley-mockup-B2_jpg_718e6f89-a2d3-4b14-bd7c-5cfd228e6164.jpg?v=1776238838" class="w-full h-full object-cover subtle-sway" alt="Mecnex Henley Black">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+                </div>
+                <div class="pt-4 px-1 flex justify-between items-baseline">
+                    <div>
+                        <div class="font-medium">Henley — Black</div>
+                        <div class="text-sm text-white/50">Mecnex • Oversized</div>
+                    </div>
+                    <div class="font-medium">₹999</div>
+                </div>
+            </a>
+
+            <!-- Product 3: Gritstones - Full Sleeve Henley T-Shirt -->
+            <a href="https://gritstones.com/products/blue-cotton-full-sleeve-henley-t-shirt-textured-casual-tshirt-06" target="_blank" rel="noopener" class="group block">
+                <div class="aspect-[4/3.1] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 relative hover:border-emerald-400/40 transition-colors">
+                    <img src="https://cdn.shopify.com/s/files/1/0274/0086/3853/files/1_b3f2eb4e-c101-4305-8075-350e4e686c36.jpg?v=1787554536" class="w-full h-full object-cover subtle-sway" alt="Gritstones Blue Henley T-Shirt">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+                </div>
+                <div class="pt-4 px-1 flex justify-between items-baseline">
+                    <div>
+                        <div class="font-medium">Full Sleeve Henley Tee</div>
+                        <div class="text-sm text-white/50">Gritstones • Blue Cotton</div>
+                    </div>
+                    <div class="font-medium">₹799</div>
+                </div>
+            </a>
+
+            <!-- Product 4: Mecnex - Leather Rider Jacket -->
+            <a href="https://mecnex.com/products/leather-rider-jacket" target="_blank" rel="noopener" class="group block">
+                <div class="aspect-[4/3.1] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 relative hover:border-emerald-400/40 transition-colors">
+                    <img src="https://mecnex.com/cdn/shop/files/black-rider-2_jpg.jpg?v=1777543429" class="w-full h-full object-cover subtle-sway" alt="Mecnex Leather Rider Jacket">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+                </div>
+                <div class="pt-4 px-1 flex justify-between items-baseline">
+                    <div>
+                        <div class="font-medium">Leather Rider Jacket</div>
+                        <div class="text-sm text-white/50">Mecnex • Vegan Leather</div>
+                    </div>
+                    <div class="font-medium">₹2,199</div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- ================= COMPARE SECTION (new) ================= -->
+    <div id="compare" class="max-w-screen-2xl mx-auto px-8 py-20 border-t border-zinc-900">
+        <div class="mb-10">
+            <span class="text-xs tracking-[2px] text-white/50">AI ASSISTANT</span>
+            <h2 class="text-4xl tracking-tighter font-semibold mt-1">Compare it before you buy it</h2>
+            <p class="text-zinc-400 mt-3 max-w-md">Upload a photo or type an item — see it priced and in stock across every brand worth checking.</p>
+            <div class="inline-flex items-center gap-x-2 mt-5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+                <i class="fa-solid fa-store text-emerald-400 text-xs"></i>
+                <span class="text-xs font-medium text-zinc-300">17 brands searched live, every time</span>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-zinc-900/70 border border-white/10 rounded-3xl p-6 md:p-8">
+
+            <!-- ai lead: compare.js updates this text on every search -->
+            <p class="text-sm text-zinc-400 mb-4">Type an item above, or upload a photo, to see live results here.</p>
+
+            <!-- comparison grid: compare.js injects real result cards here -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+
+            <!-- input bar -->
+            <div class="flex items-center gap-x-3 bg-zinc-800/60 border border-white/10 rounded-full px-4 py-2.5 mt-6">
+                <button class="w-9 h-9 rounded-full bg-zinc-700 flex items-center justify-center text-zinc-300 flex-shrink-0" aria-label="Upload photo">
+                    <i class="fa-solid fa-camera text-xs"></i>
+                </button>
+                <input type="text" placeholder="Type a clothing item or upload a photo..." class="flex-1 bg-transparent border-none outline-none text-sm text-zinc-200 placeholder-zinc-500">
+                <button class="w-9 h-9 rounded-full bg-white text-zinc-950 flex items-center justify-center flex-shrink-0" aria-label="Send">
+                    <i class="fa-solid fa-arrow-up text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!-- ================= END COMPARE SECTION ================= -->
+
+    <!-- Footer -->
+    <footer class="max-w-screen-2xl mx-auto px-8 py-10 border-t border-zinc-900">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-center gap-x-3">
+                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-zinc-950 text-sm font-bold tracking-tighter">S</span>
+                </div>
+                <span class="font-semibold tracking-tighter text-lg">S-Brand</span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="brands.html" class="hover:text-white transition-colors">Brands</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms & Conditions</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="mailto:tragedyvines@gmail.com" class="flex items-center gap-x-2 hover:text-white transition-colors">
+                    <i class="fa-solid fa-envelope text-xs"></i>
+                    tragedyvines@gmail.com
+                </a>
+            </div>
+        </div>
+        <p class="text-xs text-zinc-600 mt-6">S-Brand is a comparison platform. All products belong to their respective brands. Some links are affiliate links — see our <a href="terms.html" class="underline hover:text-zinc-400">Terms</a> for details.</p>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#111111');
+        }
+
+        // Respect reduced motion
+        function checkReducedMotion() {
+            const marquee = document.querySelector('.premium-marquee');
+            if (!marquee) return;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                marquee.style.animation = 'none';
+            }
+        }
+
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            checkReducedMotion();
+
+            // Optional: Pause marquee when not visible
+            const marqueeContainer = document.querySelector('.marquee-container');
+            if (marqueeContainer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const marquee = document.querySelector('.premium-marquee');
+                        if (!marquee) return;
+
+                        if (!entry.isIntersecting && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                            marquee.style.animationPlayState = 'paused';
+                        } else if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                            marquee.style.animationPlayState = 'running';
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(marqueeContainer);
+            }
+
+            // Keyboard accessibility hint
+            console.log('%c[S-Brand] Marquee animation initialized with reduced-motion support.', 'color:#444');
+        }
+
+        window.onload = init;
+    </script>
+
+    <script src="assets/js/compare.js"></script>
+</body>
+</html>
